@@ -1,0 +1,36 @@
+# Task 4 - from-scratch DPO, HH-RLHF track (guide configuration, manual 10.3-10.4)
+run_name: dpo_hh
+policy_init: outputs/sft/best          # notebook 02 overrides this with the attached SFT dataset path
+reference_path: outputs/sft/best       # frozen copy of the same SFT best checkpoint
+train_path: outputs/data/hh_train.jsonl   # 15,000 single-turn Anthropic/hh-rlhf pairs
+val_path: outputs/data/hh_val.jsonl       # 1,000 pairs from the hh-rlhf test split
+output_dir: outputs/dpo_hh
+
+beta: 0.1
+max_length: 512
+max_prompt_length: 256
+per_device_batch_size: 1
+grad_accum_steps: 32            # effective batch 32
+learning_rate: 1.0e-6
+scheduler: constant             # fixed LR, no decay
+warmup_steps: 0
+optimizer: rmsprop              # rmsprop (as in the DPO paper) or adamw
+weight_decay: 0.0
+max_grad_norm: 1.0
+epochs: 1
+
+fp16: true                      # policy: fp32 weights + fp16 autocast + GradScaler
+gradient_checkpointing: false
+policy_device: cuda:0
+reference_device: cuda:1        # falls back to cuda:0 on a single GPU
+reference_dtype: float32        # same numerics as the policy -> exact ties at step 0 (float16 also allowed)
+seed: 42
+
+eval_every_steps: 50
+eval_at_start: true             # sanity check: val loss = ln 2, reward accuracy = 0 at step 0
+eval_batch_size: 4
+log_every_steps: 5
+save_final: true
+max_train_examples: null
+max_val_examples: null
+max_steps: null

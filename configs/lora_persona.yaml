@@ -1,0 +1,29 @@
+# Task 5 - "Idiot Sandwich": TRL DPOTrainer + PEFT LoRA persona tuning
+run_name: lora_persona
+model_name_or_path: HuggingFaceTB/SmolLM2-360M-Instruct
+data_path: data/persona_lora/ramsay_style_preferences.json   # 220 rows: prompt / chosen / rejected
+output_dir: outputs/lora_persona
+val_size: 20                    # held-out pairs for eval reward accuracy / margin (seeded split)
+seed: 42
+
+# LoRA (justification in report): rank 16 is plenty for a style shift on 200 short pairs;
+# all attention + MLP projections so both "what to say" and "how to phrase it" can move.
+lora_r: 16
+lora_alpha: 32                  # alpha / r = 2, the common default scaling
+lora_dropout: 0.05              # small dataset -> a little regularisation
+lora_target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+# DPO / optimisation
+beta: 0.1
+learning_rate: 5.0e-5           # LoRA needs a larger LR than full fine-tuning (1e-6 would barely move)
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 2  # effective batch 8 -> 25 steps/epoch on 200 pairs
+num_train_epochs: 3
+max_length: 512                 # persona answers are short (~30 words); nothing is truncated
+max_grad_norm: 1.0
+fp16: true                      # T4: fp16 mixed precision (bf16 must be off)
+gradient_checkpointing: false
+logging_steps: 5
+eval_steps: 10

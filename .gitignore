@@ -1,2 +1,18 @@
 __pycache__/
 *.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Model weights and trainer state never go to git (multi-GB; they live in Kaggle notebook outputs)
+outputs/**/best/
+outputs/**/final/
+outputs/**/adapter/
+outputs/**/trainer/
+*.safetensors
+*.bin
+*.zip
+outputs/smoke/
+
+# Prepared training splits are large and fully reproducible with scripts/prepare_data.py
+# (outputs/data/data_stats.json IS committed)
+outputs/data/*.jsonl

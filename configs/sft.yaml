@@ -1,0 +1,30 @@
+# Task 3 - supervised fine-tuning (guide configuration, manual section 9.2)
+run_name: sft
+model_name_or_path: Qwen/Qwen2.5-0.5B
+train_path: outputs/data/sft_train.jsonl     # 30,000 UltraChat-200k single-turn examples
+val_path: outputs/data/sft_val.jsonl         # 1,000 examples from test_sft
+output_dir: outputs/sft
+
+max_length: 512
+max_prompt_length: 256
+per_device_batch_size: 2
+grad_accum_steps: 16            # effective batch 32
+learning_rate: 2.0e-5
+warmup_ratio: 0.03
+scheduler: cosine               # cosine decay to 0 after linear warmup
+weight_decay: 0.1               # not applied to biases / norm weights
+adam_betas: [0.9, 0.999]         # PyTorch AdamW defaults
+max_grad_norm: 1.0
+epochs: 1
+
+fp16: true                      # fp16 autocast + GradScaler, fp32 master weights
+gradient_checkpointing: false   # set true if you hit CUDA OOM
+device: cuda:0
+seed: 42
+
+eval_every_steps: 100           # optimizer steps between validation passes
+eval_batch_size: 8
+log_every_steps: 10
+max_train_examples: null        # set small numbers for pilot / smoke runs
+max_val_examples: null
+max_steps: null
