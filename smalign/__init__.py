@@ -5,32 +5,34 @@ Module map:
     batching    -- tokenisation, truncation, padding and response-only label masks
     losses      -- response log-probabilities, SFT loss, DPO loss and DPO metrics
     data        -- dataset download / filtering / formatting
+    judge       -- judge prompts, verdict parsing and win/loss summaries
     utils       -- seeding, JSON(L) IO, metric logging, device helpers
+
+The torch-based names below are resolved lazily, so ``smalign.judge`` / ``smalign.utils`` /
+``smalign.notebook`` can be imported where PyTorch is not installed (Kaggle Benchmarks notebooks).
 """
 
-from smalign.batching import IGNORE_INDEX, build_dpo_batch, build_lm_batch, build_sft_batch
-from smalign.losses import (
-    compute_dpo_loss,
-    compute_response_logprobs,
-    compute_sft_loss,
-    dpo_loss_from_logps,
-    dpo_metrics,
-    response_logprobs_from_batch,
-    sequence_logprobs,
-)
-from smalign.prompting import format_prompt
+from importlib import import_module
 
-__all__ = [
-    "IGNORE_INDEX",
-    "build_dpo_batch",
-    "build_lm_batch",
-    "build_sft_batch",
-    "compute_dpo_loss",
-    "compute_response_logprobs",
-    "compute_sft_loss",
-    "dpo_loss_from_logps",
-    "dpo_metrics",
-    "format_prompt",
-    "response_logprobs_from_batch",
-    "sequence_logprobs",
-]
+_LAZY = {
+    "IGNORE_INDEX": "batching",
+    "build_dpo_batch": "batching",
+    "build_lm_batch": "batching",
+    "build_sft_batch": "batching",
+    "compute_dpo_loss": "losses",
+    "compute_response_logprobs": "losses",
+    "compute_sft_loss": "losses",
+    "dpo_loss_from_logps": "losses",
+    "dpo_metrics": "losses",
+    "response_logprobs_from_batch": "losses",
+    "sequence_logprobs": "losses",
+    "format_prompt": "prompting",
+}
+
+__all__ = sorted(_LAZY)
+
+
+def __getattr__(name):
+    if name in _LAZY:
+        return getattr(import_module(f"smalign.{_LAZY[name]}"), name)
+    raise AttributeError(f"module 'smalign' has no attribute {name!r}")

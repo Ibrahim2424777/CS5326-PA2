@@ -9,13 +9,16 @@ import time
 from pathlib import Path
 from typing import Any, Iterable
 
-import numpy as np
-import torch
+# numpy / torch are imported inside the functions that need them, so the JSON helpers can be used
+# in environments without PyTorch (e.g. the Kaggle Benchmarks judge notebook).
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 def set_seed(seed: int) -> None:
+    import numpy as np
+    import torch
+
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -114,6 +117,8 @@ class MetricsLogger:
         self.start = time.time()
 
     def log(self, split: str, step: int, **values) -> dict:
+        import torch
+
         record = {"split": split, "step": step, "elapsed_sec": round(time.time() - self.start, 1)}
         for key, value in values.items():
             if isinstance(value, torch.Tensor):
@@ -124,6 +129,8 @@ class MetricsLogger:
 
 
 def gpu_memory_summary() -> str:
+    import torch
+
     if not torch.cuda.is_available():
         return "cpu"
     parts = []
@@ -133,8 +140,10 @@ def gpu_memory_summary() -> str:
     return ", ".join(parts)
 
 
-def resolve_device(name: str | None, fallback: str = "cuda:0") -> torch.device:
+def resolve_device(name: str | None, fallback: str = "cuda:0") -> "torch.device":
     """Map a requested device to one that exists (cuda:1 -> cuda:0 on a single GPU, cpu without GPUs)."""
+
+    import torch
 
     name = name or fallback
     if name.startswith("cuda"):
