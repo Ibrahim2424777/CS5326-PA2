@@ -1,0 +1,11 @@
+{
+  "run_name": "dpo_hh",
+  "optimizer_steps": 469,
+  "best_step": 469,
+  "best_val_reward_accuracy": 0.6269999742507935,
+  "best_val_reward_margin": 0.22393938899040222,
+  "train_pairs": 15000,
+  "val_pairs": 1000,
+  "minutes": 61.8,
+  "peak_memory": "cuda:0 peak 11.19 GiB, cuda:1 peak 7.64 GiB"
+}

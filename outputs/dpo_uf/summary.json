@@ -1,0 +1,11 @@
+{
+  "run_name": "dpo_uf",
+  "optimizer_steps": 469,
+  "best_step": 469,
+  "best_val_reward_accuracy": 0.718999981880188,
+  "best_val_reward_margin": 0.7513379454612732,
+  "train_pairs": 15000,
+  "val_pairs": 1000,
+  "minutes": 108.5,
+  "peak_memory": "cuda:0 peak 11.22 GiB, cuda:1 peak 7.64 GiB"
+}

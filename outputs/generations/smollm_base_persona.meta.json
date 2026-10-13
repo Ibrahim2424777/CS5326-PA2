@@ -1,0 +1,17 @@
+{
+  "generator": "smollm2_instruct_base",
+  "model_path": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "adapter_path": null,
+  "eval_set": "eval_sets/persona_style_eval_40.json",
+  "n_prompts": 40,
+  "template": "tokenizer.chat_template",
+  "decoding": {
+    "do_sample": false,
+    "temperature": null,
+    "top_p": null,
+    "max_new_tokens": 256,
+    "repetition_penalty": 1.1,
+    "no_repeat_ngram_size": 0
+  },
+  "dtype": "float32"
+}

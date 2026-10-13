@@ -1,0 +1,9 @@
+{
+  "run_name": "sft",
+  "optimizer_steps": 938,
+  "best_val_loss": 1.400805324030275,
+  "train_examples": 30000,
+  "val_examples": 1000,
+  "minutes": 96.7,
+  "peak_memory": "cuda:0 peak 13.07 GiB, cuda:1 peak 0.00 GiB"
+}

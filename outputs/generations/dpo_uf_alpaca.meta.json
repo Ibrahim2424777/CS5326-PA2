@@ -1,0 +1,17 @@
+{
+  "generator": "dpo_uf",
+  "model_path": "/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-2/cs5326-pa2/outputs/dpo_uf/best",
+  "adapter_path": null,
+  "eval_set": "eval_sets/alpaca_eval_300_seed42.json",
+  "n_prompts": 300,
+  "template": "chatml_no_system",
+  "decoding": {
+    "do_sample": false,
+    "temperature": null,
+    "top_p": null,
+    "max_new_tokens": 512,
+    "repetition_penalty": 1.1,
+    "no_repeat_ngram_size": 0
+  },
+  "dtype": "float32"
+}

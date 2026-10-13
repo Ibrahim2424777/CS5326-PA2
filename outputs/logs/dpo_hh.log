@@ -1,0 +1,115 @@
+[dpo] policy on cuda:0, reference on cuda:1, fp16=True
+[dpo] config={'run_name': 'dpo_hh', 'policy_init': '/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-1/cs5326-pa2/outputs/sft/best', 'reference_path': '/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-1/cs5326-pa2/outputs/sft/best', 'train_path': '/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-1/cs5326-pa2/outputs/data/hh_train.jsonl', 'val_path': '/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-1/cs5326-pa2/outputs/data/hh_val.jsonl', 'output_dir': 'outputs/dpo_hh', 'beta': 0.1, 'max_length': 512, 'max_prompt_length': 256, 'per_device_batch_size': 1, 'grad_accum_steps': 32, 'learning_rate': 1e-06, 'scheduler': 'constant', 'warmup_steps': 0, 'optimizer': 'rmsprop', 'weight_decay': 0.0, 'max_grad_norm': 1.0, 'epochs': 1, 'fp16': True, 'gradient_checkpointing': False, 'policy_device': 'cuda:0', 'reference_device': 'cuda:1', 'reference_dtype': 'float32', 'seed': 42, 'eval_every_steps': 50, 'eval_at_start': True, 'eval_batch_size': 4, 'log_every_steps': 5, 'save_final': True, 'max_train_examples': None, 'max_val_examples': None, 'max_steps': None, 'prompt_template': 'chatml_no_system'}
+The tokenizer you are loading from '/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-1/cs5326-pa2/outputs/sft/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[dpo] train pairs=15000 val pairs=1000 optimizer_steps=469
+[dpo] cached reference val logps in 41s
+[dpo] step 0 val loss 0.6931 acc 0.000 margin 0.0000 best=False
+/kaggle/working/cs5326-pa2/scripts/train_dpo.py:193: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  scheduler.step()
+[dpo] memory after first step: cuda:0 peak 8.57 GiB, cuda:1 peak 7.64 GiB
+[dpo] step 5/469 loss 0.6834 acc 0.331 margin 0.0456 gnorm 43.33 elapsed 0.6m eta 54.2m
+[dpo] step 10/469 loss 0.7078 acc 0.537 margin 0.0401 gnorm 43.65 elapsed 1.2m eta 53.4m
+[dpo] step 15/469 loss 0.7076 acc 0.562 margin 0.0389 gnorm 44.93 elapsed 1.7m eta 52.8m
+[dpo] step 20/469 loss 0.6611 acc 0.544 margin 0.1218 gnorm 36.21 elapsed 2.3m eta 52.1m
+[dpo] step 25/469 loss 0.6956 acc 0.562 margin 0.0844 gnorm 45.21 elapsed 2.9m eta 51.2m
+[dpo] step 30/469 loss 0.6663 acc 0.550 margin 0.1414 gnorm 38.07 elapsed 3.4m eta 50.3m
+[dpo] step 35/469 loss 0.6819 acc 0.562 margin 0.1078 gnorm 37.62 elapsed 4.0m eta 49.4m
+[dpo] step 40/469 loss 0.6351 acc 0.613 margin 0.2080 gnorm 42.94 elapsed 4.5m eta 48.7m
+[dpo] step 45/469 loss 0.6669 acc 0.594 margin 0.1319 gnorm 39.14 elapsed 5.1m eta 48.3m
+[dpo] step 50/469 loss 0.6680 acc 0.594 margin 0.1210 gnorm 40.72 elapsed 5.7m eta 47.7m
+[dpo] step 50 val loss 0.6867 acc 0.577 margin 0.1071 best=True
+[dpo] step 55/469 loss 0.6716 acc 0.613 margin 0.1223 gnorm 43.00 elapsed 7.1m eta 53.4m
+[dpo] step 60/469 loss 0.6855 acc 0.525 margin 0.1022 gnorm 41.37 elapsed 7.7m eta 52.3m
+[dpo] step 65/469 loss 0.6619 acc 0.613 margin 0.1348 gnorm 43.53 elapsed 8.2m eta 51.1m
+[dpo] step 70/469 loss 0.6753 acc 0.544 margin 0.1195 gnorm 39.94 elapsed 8.8m eta 50.1m
+[dpo] step 75/469 loss 0.6280 acc 0.650 margin 0.2265 gnorm 35.55 elapsed 9.4m eta 49.1m
+[dpo] step 80/469 loss 0.6514 acc 0.600 margin 0.1742 gnorm 40.26 elapsed 9.9m eta 48.3m
+[dpo] step 85/469 loss 0.6441 acc 0.656 margin 0.1923 gnorm 48.21 elapsed 10.5m eta 47.4m
+[dpo] step 90/469 loss 0.6680 acc 0.600 margin 0.1569 gnorm 44.24 elapsed 11.1m eta 46.5m
+[dpo] step 95/469 loss 0.5977 acc 0.675 margin 0.3119 gnorm 40.48 elapsed 11.6m eta 45.8m
+[dpo] step 100/469 loss 0.6867 acc 0.556 margin 0.1143 gnorm 45.03 elapsed 12.2m eta 44.9m
+[dpo] step 100 val loss 0.6689 acc 0.585 margin 0.1462 best=True
+[dpo] step 105/469 loss 0.6633 acc 0.588 margin 0.1553 gnorm 48.03 elapsed 13.6m eta 47.1m
+[dpo] step 110/469 loss 0.6582 acc 0.631 margin 0.1688 gnorm 39.84 elapsed 14.2m eta 46.2m
+[dpo] step 115/469 loss 0.6548 acc 0.606 margin 0.1836 gnorm 39.11 elapsed 14.7m eta 45.3m
+[dpo] step 120/469 loss 0.6863 acc 0.531 margin 0.0968 gnorm 41.52 elapsed 15.3m eta 44.5m
+[dpo] step 125/469 loss 0.6871 acc 0.594 margin 0.1010 gnorm 46.38 elapsed 15.9m eta 43.7m
+[dpo] step 130/469 loss 0.6635 acc 0.606 margin 0.1663 gnorm 46.26 elapsed 16.5m eta 42.9m
+[dpo] step 135/469 loss 0.6500 acc 0.588 margin 0.1861 gnorm 45.93 elapsed 17.0m eta 42.1m
+[dpo] step 140/469 loss 0.6800 acc 0.556 margin 0.1071 gnorm 39.24 elapsed 17.6m eta 41.3m
+[dpo] step 145/469 loss 0.6533 acc 0.619 margin 0.1637 gnorm 41.41 elapsed 18.2m eta 40.6m
+[dpo] step 150/469 loss 0.6469 acc 0.656 margin 0.1901 gnorm 36.51 elapsed 18.7m eta 39.9m
+[dpo] step 150 val loss 0.6639 acc 0.593 margin 0.1590 best=True
+[dpo] step 155/469 loss 0.6187 acc 0.631 margin 0.2483 gnorm 38.77 elapsed 20.2m eta 40.8m
+[dpo] step 160/469 loss 0.6555 acc 0.575 margin 0.1775 gnorm 46.84 elapsed 20.7m eta 40.0m
+[dpo] step 165/469 loss 0.6273 acc 0.619 margin 0.2440 gnorm 38.61 elapsed 21.3m eta 39.2m
+[dpo] step 170/469 loss 0.6631 acc 0.606 margin 0.1860 gnorm 42.38 elapsed 21.9m eta 38.5m
+[dpo] step 175/469 loss 0.6391 acc 0.581 margin 0.2340 gnorm 40.63 elapsed 22.4m eta 37.7m
+[dpo] step 180/469 loss 0.6786 acc 0.562 margin 0.1493 gnorm 36.90 elapsed 23.0m eta 36.9m
+[dpo] step 185/469 loss 0.6311 acc 0.600 margin 0.2554 gnorm 38.36 elapsed 23.6m eta 36.2m
+[dpo] step 190/469 loss 0.6506 acc 0.594 margin 0.2004 gnorm 36.60 elapsed 24.1m eta 35.4m
+[dpo] step 195/469 loss 0.6331 acc 0.644 margin 0.2580 gnorm 42.12 elapsed 24.7m eta 34.7m
+[dpo] step 200/469 loss 0.6557 acc 0.619 margin 0.1706 gnorm 42.11 elapsed 25.3m eta 34.0m
+[dpo] step 200 val loss 0.6568 acc 0.598 margin 0.1947 best=True
+[dpo] step 205/469 loss 0.6616 acc 0.575 margin 0.1822 gnorm 43.54 elapsed 26.7m eta 34.4m
+[dpo] step 210/469 loss 0.6687 acc 0.600 margin 0.1590 gnorm 36.71 elapsed 27.3m eta 33.6m
+[dpo] step 215/469 loss 0.6133 acc 0.644 margin 0.2934 gnorm 41.20 elapsed 27.8m eta 32.9m
+[dpo] step 220/469 loss 0.6447 acc 0.631 margin 0.2284 gnorm 42.17 elapsed 28.4m eta 32.1m
+[dpo] step 225/469 loss 0.6829 acc 0.619 margin 0.1719 gnorm 40.81 elapsed 29.0m eta 31.4m
+[dpo] step 230/469 loss 0.6037 acc 0.694 margin 0.3097 gnorm 42.05 elapsed 29.5m eta 30.7m
+[dpo] step 235/469 loss 0.6727 acc 0.562 margin 0.1411 gnorm 38.19 elapsed 30.1m eta 30.0m
+[dpo] step 240/469 loss 0.6554 acc 0.588 margin 0.2210 gnorm 41.47 elapsed 30.7m eta 29.3m
+[dpo] step 245/469 loss 0.6483 acc 0.588 margin 0.2070 gnorm 37.30 elapsed 31.2m eta 28.6m
+[dpo] step 250/469 loss 0.6530 acc 0.625 margin 0.2083 gnorm 43.25 elapsed 31.8m eta 27.9m
+[dpo] step 250 val loss 0.6521 acc 0.610 margin 0.1993 best=True
+[dpo] step 255/469 loss 0.6891 acc 0.575 margin 0.1369 gnorm 37.30 elapsed 33.2m eta 27.9m
+[dpo] step 260/469 loss 0.6664 acc 0.569 margin 0.1754 gnorm 46.93 elapsed 33.8m eta 27.2m
+[dpo] step 265/469 loss 0.6371 acc 0.600 margin 0.2358 gnorm 45.23 elapsed 34.4m eta 26.5m
+[dpo] step 270/469 loss 0.6272 acc 0.669 margin 0.2545 gnorm 41.81 elapsed 34.9m eta 25.8m
+[dpo] step 275/469 loss 0.6757 acc 0.512 margin 0.1220 gnorm 48.27 elapsed 35.5m eta 25.1m
+[dpo] step 280/469 loss 0.6239 acc 0.631 margin 0.2917 gnorm 48.97 elapsed 36.1m eta 24.4m
+[dpo] step 285/469 loss 0.6336 acc 0.656 margin 0.2553 gnorm 39.63 elapsed 36.7m eta 23.7m
+[dpo] step 290/469 loss 0.6707 acc 0.613 margin 0.1706 gnorm 43.62 elapsed 37.3m eta 23.0m
+[dpo] step 295/469 loss 0.6361 acc 0.631 margin 0.2135 gnorm 33.39 elapsed 37.8m eta 22.3m
+[dpo] step 300/469 loss 0.6561 acc 0.637 margin 0.2040 gnorm 41.96 elapsed 38.4m eta 21.6m
+[dpo] step 300 val loss 0.6489 acc 0.614 margin 0.2078 best=True
+[dpo] step 305/469 loss 0.6267 acc 0.637 margin 0.2592 gnorm 45.16 elapsed 39.8m eta 21.4m
+[dpo] step 310/469 loss 0.6165 acc 0.637 margin 0.2617 gnorm 37.80 elapsed 40.4m eta 20.7m
+[dpo] step 315/469 loss 0.6434 acc 0.656 margin 0.2321 gnorm 40.02 elapsed 41.0m eta 20.0m
+[dpo] step 320/469 loss 0.6097 acc 0.662 margin 0.2927 gnorm 44.69 elapsed 41.5m eta 19.3m
+[dpo] step 325/469 loss 0.6241 acc 0.675 margin 0.2507 gnorm 38.00 elapsed 42.1m eta 18.6m
+[dpo] step 330/469 loss 0.6833 acc 0.588 margin 0.1200 gnorm 44.96 elapsed 42.7m eta 18.0m
+[dpo] step 335/469 loss 0.6109 acc 0.662 margin 0.3091 gnorm 38.97 elapsed 43.2m eta 17.3m
+[dpo] step 340/469 loss 0.6676 acc 0.594 margin 0.1915 gnorm 49.81 elapsed 43.8m eta 16.6m
+[dpo] step 345/469 loss 0.6420 acc 0.594 margin 0.2404 gnorm 45.23 elapsed 44.3m eta 15.9m
+[dpo] step 350/469 loss 0.6704 acc 0.594 margin 0.2018 gnorm 40.24 elapsed 44.9m eta 15.3m
+[dpo] step 350 val loss 0.6546 acc 0.610 margin 0.2209 best=False
+[dpo] step 355/469 loss 0.5951 acc 0.650 margin 0.3505 gnorm 43.77 elapsed 46.3m eta 14.9m
+[dpo] step 360/469 loss 0.6604 acc 0.637 margin 0.2039 gnorm 41.35 elapsed 46.9m eta 14.2m
+[dpo] step 365/469 loss 0.6283 acc 0.675 margin 0.2948 gnorm 35.90 elapsed 47.4m eta 13.5m
+[dpo] step 370/469 loss 0.6509 acc 0.613 margin 0.2191 gnorm 43.63 elapsed 48.0m eta 12.8m
+[dpo] step 375/469 loss 0.6682 acc 0.600 margin 0.1783 gnorm 40.02 elapsed 48.6m eta 12.2m
+[dpo] step 380/469 loss 0.6525 acc 0.613 margin 0.2111 gnorm 41.63 elapsed 49.1m eta 11.5m
+[dpo] step 385/469 loss 0.6711 acc 0.631 margin 0.1999 gnorm 51.50 elapsed 49.7m eta 10.8m
+[dpo] step 390/469 loss 0.6197 acc 0.631 margin 0.2954 gnorm 40.02 elapsed 50.2m eta 10.2m
+[dpo] step 395/469 loss 0.6737 acc 0.550 margin 0.1797 gnorm 39.49 elapsed 50.8m eta 9.5m
+[dpo] step 400/469 loss 0.6361 acc 0.631 margin 0.2394 gnorm 42.65 elapsed 51.4m eta 8.9m
+[dpo] step 400 val loss 0.6456 acc 0.621 margin 0.2086 best=True
+[dpo] step 405/469 loss 0.6505 acc 0.600 margin 0.2042 gnorm 39.54 elapsed 52.8m eta 8.3m
+[dpo] step 410/469 loss 0.6234 acc 0.675 margin 0.2769 gnorm 46.09 elapsed 53.4m eta 7.7m
+[dpo] step 415/469 loss 0.6245 acc 0.650 margin 0.2430 gnorm 35.42 elapsed 54.0m eta 7.0m
+[dpo] step 420/469 loss 0.6348 acc 0.650 margin 0.2510 gnorm 50.17 elapsed 54.5m eta 6.4m
+[dpo] step 425/469 loss 0.6491 acc 0.625 margin 0.2378 gnorm 38.54 elapsed 55.1m eta 5.7m
+[dpo] step 430/469 loss 0.6389 acc 0.644 margin 0.2734 gnorm 48.26 elapsed 55.7m eta 5.1m
+[dpo] step 435/469 loss 0.6293 acc 0.644 margin 0.2632 gnorm 37.60 elapsed 56.3m eta 4.4m
+[dpo] step 440/469 loss 0.6139 acc 0.644 margin 0.2981 gnorm 39.73 elapsed 56.8m eta 3.7m
+[dpo] step 445/469 loss 0.6184 acc 0.688 margin 0.2812 gnorm 37.49 elapsed 57.4m eta 3.1m
+[dpo] step 450/469 loss 0.6240 acc 0.625 margin 0.2813 gnorm 37.82 elapsed 58.0m eta 2.4m
+[dpo] step 450 val loss 0.6453 acc 0.616 margin 0.2350 best=False
+[dpo] step 455/469 loss 0.6879 acc 0.562 margin 0.1378 gnorm 41.74 elapsed 59.3m eta 1.8m
+[dpo] step 460/469 loss 0.6563 acc 0.594 margin 0.2244 gnorm 40.48 elapsed 59.9m eta 1.2m
+[dpo] step 465/469 loss 0.6647 acc 0.594 margin 0.1946 gnorm 38.25 elapsed 60.4m eta 0.5m
+[dpo] step 469/469 loss 0.6307 acc 0.658 margin 0.2570 gnorm 50.24 elapsed 60.9m eta 0.0m
+[dpo] step 469 val loss 0.6457 acc 0.627 margin 0.2239 best=True
+[dpo] done: {'run_name': 'dpo_hh', 'optimizer_steps': 469, 'best_step': 469, 'best_val_reward_accuracy': 0.6269999742507935, 'best_val_reward_margin': 0.22393938899040222, 'train_pairs': 15000, 'val_pairs': 1000, 'minutes': 61.8, 'peak_memory': 'cuda:0 peak 11.19 GiB, cuda:1 peak 7.64 GiB'}

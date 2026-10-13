@@ -1,0 +1,118 @@
+
+$ scripts/train_sft.py --config configs/sft.yaml --set model_name_or_path=/tmp/smoke/tiny_qwen2 train_path=/tmp/smoke/data/sft_train.jsonl val_path=/tmp/smoke/data/sft_val.jsonl output_dir=/tmp/smoke/sft grad_accum_steps=4 eval_every_steps=3 log_every_steps=1 learning_rate=1e-3 max_length=64 max_prompt_length=32 device=cpu fp16=true
+[sft] device=cpu fp16=False config={'run_name': 'sft', 'model_name_or_path': '/tmp/smoke/tiny_qwen2', 'train_path': '/tmp/smoke/data/sft_train.jsonl', 'val_path': '/tmp/smoke/data/sft_val.jsonl', 'output_dir': '/tmp/smoke/sft', 'max_length': 64, 'max_prompt_length': 32, 'per_device_batch_size': 2, 'grad_accum_steps': 4, 'learning_rate': 0.001, 'warmup_ratio': 0.03, 'scheduler': 'cosine', 'weight_decay': 0.1, 'adam_betas': [0.9, 0.999], 'max_grad_norm': 1.0, 'epochs': 1, 'fp16': True, 'gradient_checkpointing': False, 'device': 'cpu', 'seed': 42, 'eval_every_steps': 3, 'eval_batch_size': 8, 'log_every_steps': 1, 'max_train_examples': None, 'max_val_examples': None, 'max_steps': None, 'prompt_template': 'chatml_no_system'}
+The tokenizer you are loading from '/tmp/smoke/tiny_qwen2' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[sft] train=48 val=8 optimizer_steps=6 warmup=0
+[sft] memory after first step: cuda:0 peak 0.00 GiB, cuda:1 peak 0.00 GiB
+[sft] step 1/6 loss 11.9286 lr 9.33e-04 gnorm 2.117 elapsed 0.0m eta 0.1m
+[sft] step 2/6 loss 11.7980 lr 7.50e-04 gnorm 2.115 elapsed 0.0m eta 0.1m
+[sft] step 3/6 loss 11.6633 lr 5.00e-04 gnorm 2.129 elapsed 0.0m eta 0.0m
+[sft] step 3 val_loss 11.5858 ppl 107554.40 best=True
+[sft] step 4/6 loss 11.5735 lr 2.50e-04 gnorm 2.055 elapsed 0.1m eta 0.0m
+[sft] step 5/6 loss 11.4818 lr 6.70e-05 gnorm 2.027 elapsed 0.1m eta 0.0m
+[sft] step 6/6 loss 11.4768 lr 0.00e+00 gnorm 1.903 elapsed 0.1m eta 0.0m
+[sft] step 6 val_loss 11.4870 ppl 97442.33 best=True
+[sft] done: {'run_name': 'sft', 'optimizer_steps': 6, 'best_val_loss': 11.487015944260817, 'train_examples': 48, 'val_examples': 8, 'minutes': 0.1, 'peak_memory': 'cuda:0 peak 0.00 GiB, cuda:1 peak 0.00 GiB'}
+
+$ scripts/train_dpo.py --config configs/dpo_hh.yaml --set policy_init=/tmp/smoke/sft/best reference_path=/tmp/smoke/sft/best train_path=/tmp/smoke/data/hh_train.jsonl val_path=/tmp/smoke/data/hh_val.jsonl output_dir=/tmp/smoke/dpo_hh grad_accum_steps=8 eval_every_steps=2 log_every_steps=1 learning_rate=1e-3 policy_device=cpu reference_device=cpu max_length=64 max_prompt_length=32 fp16=true
+[dpo] policy on cpu, reference on cpu, fp16=False
+[dpo] config={'run_name': 'dpo_hh', 'policy_init': '/tmp/smoke/sft/best', 'reference_path': '/tmp/smoke/sft/best', 'train_path': '/tmp/smoke/data/hh_train.jsonl', 'val_path': '/tmp/smoke/data/hh_val.jsonl', 'output_dir': '/tmp/smoke/dpo_hh', 'beta': 0.1, 'max_length': 64, 'max_prompt_length': 32, 'per_device_batch_size': 1, 'grad_accum_steps': 8, 'learning_rate': 0.001, 'scheduler': 'constant', 'warmup_steps': 0, 'optimizer': 'rmsprop', 'weight_decay': 0.0, 'max_grad_norm': 1.0, 'epochs': 1, 'fp16': False, 'gradient_checkpointing': False, 'policy_device': 'cpu', 'reference_device': 'cpu', 'reference_dtype': 'float32', 'seed': 42, 'eval_every_steps': 2, 'eval_at_start': True, 'eval_batch_size': 4, 'log_every_steps': 1, 'save_final': True, 'max_train_examples': None, 'max_val_examples': None, 'max_steps': None, 'prompt_template': 'chatml_no_system'}
+The tokenizer you are loading from '/tmp/smoke/sft/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[dpo] train pairs=64 val pairs=8 optimizer_steps=8
+[dpo] cached reference val logps in 1s
+[dpo] step 0 val loss 0.6931 acc 0.000 margin 0.0000 best=False
+[dpo] memory after first step: cuda:0 peak 0.00 GiB, cuda:1 peak 0.00 GiB
+[dpo] step 1/8 loss 0.6931 acc 0.000 margin 0.0000 gnorm 1.49 elapsed 0.0m eta 0.3m
+[dpo] step 2/8 loss 0.4507 acc 1.000 margin 0.5689 gnorm 1.78 elapsed 0.1m eta 0.3m
+[dpo] step 2 val loss 0.2117 acc 1.000 margin 1.4547 best=True
+[dpo] step 3/8 loss 0.2035 acc 1.000 margin 1.4951 gnorm 0.61 elapsed 0.2m eta 0.3m
+[dpo] step 4/8 loss 0.1173 acc 1.000 margin 2.1224 gnorm 0.33 elapsed 0.2m eta 0.2m
+[dpo] step 4 val loss 0.0732 acc 1.000 margin 2.6040 best=True
+[dpo] step 5/8 loss 0.0655 acc 1.000 margin 2.7194 gnorm 0.19 elapsed 0.2m eta 0.1m
+[dpo] step 6/8 loss 0.0491 acc 1.000 margin 3.0349 gnorm 0.14 elapsed 0.3m eta 0.1m
+[dpo] step 6 val loss 0.0409 acc 1.000 margin 3.2035 best=True
+[dpo] step 7/8 loss 0.0320 acc 1.000 margin 3.4590 gnorm 0.10 elapsed 0.3m eta 0.0m
+[dpo] step 8/8 loss 0.0249 acc 1.000 margin 3.7660 gnorm 0.14 elapsed 0.4m eta 0.0m
+[dpo] step 8 val loss 0.1489 acc 1.000 margin 2.4019 best=False
+[dpo] done: {'run_name': 'dpo_hh', 'optimizer_steps': 8, 'best_step': 6, 'best_val_reward_accuracy': 1.0, 'best_val_reward_margin': 3.203489065170288, 'train_pairs': 64, 'val_pairs': 8, 'minutes': 0.4, 'peak_memory': 'cuda:0 peak 0.00 GiB, cuda:1 peak 0.00 GiB'}
+[smoke] DPO step-0 val: loss=0.69315 acc=0.0 (expected ln2, 0)
+[smoke] DPO last val: {'split': 'val', 'step': 8, 'elapsed_sec': 25.1, 'loss': 0.1488591879606247, 'reward_accuracy': 1.0, 'reward_margin': 2.401906728744507, 'reward_chosen': -1.4187628030776978, 'reward_rejected': -3.820669651031494, 'reward_ties': 0.0, 'is_best': False}
+
+$ scripts/generate.py --model_path /tmp/smoke/sft/best --generator sft --eval_set eval_sets/hh_rlhf_eval_300_seed42.json --output_path /tmp/smoke/generations/sft_hh.json --limit 6 --batch_size 4 --max_new_tokens 12 --device cpu
+The tokenizer you are loading from '/tmp/smoke/sft/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] sft: 6 prompts pending, stop ids [151643, 151645], template chatml_no_system
+[gen] sft: 4/6 done, 0s
+[gen] sft: 6/6 done, 0s
+[gen] wrote /tmp/smoke/generations/sft_hh.json
+
+$ scripts/generate.py --model_path /tmp/smoke/dpo_hh/best --generator dpo_hh --eval_set eval_sets/hh_rlhf_eval_300_seed42.json --output_path /tmp/smoke/generations/dpo_hh_hh.json --limit 6 --batch_size 4 --max_new_tokens 12 --device cpu
+The tokenizer you are loading from '/tmp/smoke/dpo_hh/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] dpo_hh: 6 prompts pending, stop ids [151643, 151645], template chatml_no_system
+[gen] dpo_hh: 4/6 done, 0s
+[gen] dpo_hh: 6/6 done, 0s
+[gen] wrote /tmp/smoke/generations/dpo_hh_hh.json
+
+$ scripts/generate.py --model_path /tmp/smoke/sft/best --generator sft --eval_set eval_sets/hh_rlhf_eval_300_seed42.json --output_path /tmp/smoke/generations/sft_hh.json --limit 6 --device cpu
+[gen] /tmp/smoke/generations/sft_hh.json already complete (6 rows); skipping
+
+$ scripts/build_pairs.py --candidate /tmp/smoke/generations/dpo_hh_hh.json --baseline /tmp/smoke/generations/sft_hh.json --rubric safety --eval_set eval_sets/hh_rlhf_eval_300_seed42.json --output_path /tmp/smoke/eval/dpo_hh_vs_sft_pairs.jsonl
+[pairs] wrote 6 pairs to /tmp/smoke/eval/dpo_hh_vs_sft_pairs.jsonl (candidate shown as A in 3)
+
+$ scripts/judge_pairwise_kaggle.py --pairs_path /tmp/smoke/eval/dpo_hh_vs_sft_pairs.jsonl --output_path /tmp/smoke/eval/dpo_hh_vs_sft_judged.jsonl --backend mock --batch_size 2 --reuse_judgments
+[judge] 6 pairs, 0 already judged, 6 pending, rubric=safety
+[judge] batch 1/3 saved; ok=2/6
+[judge] batch 2/3 saved; ok=4/6
+[judge] batch 2 attempt 1 failed: RuntimeError: simulated proxy error
+[judge] batch 2 attempt 2 failed: RuntimeError: simulated proxy error
+[judge] batch 3/3 saved; ok=6/6
+[judge] winner: wins=2 losses=2 ties=2 unknown=0 failures=0 win_rate=0.3333333333333333
+[judge] judged -> /tmp/smoke/eval/dpo_hh_vs_sft_judged.jsonl
+[judge] summary -> /tmp/smoke/eval/dpo_hh_vs_sft_judged_summary.json
+
+$ scripts/judge_pairwise_kaggle.py --pairs_path /tmp/smoke/eval/dpo_hh_vs_sft_pairs.jsonl --output_path /tmp/smoke/eval/dpo_hh_vs_sft_judged.jsonl --backend mock --batch_size 2 --reuse_judgments
+[judge] 6 pairs, 6 already judged, 0 pending, rubric=safety
+[judge] summary -> /tmp/smoke/eval/dpo_hh_vs_sft_judged_summary.json
+{
+ "n": 6,
+ "wins": 2,
+ "losses": 2,
+ "ties": 2,
+ "unknown": 0,
+ "failures": 0,
+ "win_rate": 0.3333333333333333,
+ "win_rate_ties_half": 0.5,
+ "win_rate_excl_ties": 0.5,
+ "loss_rate": 0.3333333333333333,
+ "tie_rate": 0.3333333333333333,
+ "unknown_rate": 0.0,
+ "failure_rate": 0.0,
+ "by_category": {
+  "benign_helpfulness": {
+   "n": 1,
+   "wins": 1,
+   "losses": 0,
+   "ties": 0,
+   "unknown": 0,
+   "failures": 0,
+   "win_rate": 1.0,
+   "win_rate_ties_half": 1.0,
+   "win_rate_excl_ties": 1.0,
+   "loss_rate": 0.0,
+   "tie_rate": 0.0,
+   "unknown_rate": 0.0,
+   "failure_rate": 0.0
+  },
+  "harmful_in
+
+$ scripts/plot_training.py --sft /tmp/smoke/sft --dpo /tmp/smoke/dpo_hh --out_dir /tmp/smoke/report_assets
+[plot] wrote /tmp/smoke/report_assets/sft_loss.png
+[plot] wrote /tmp/smoke/report_assets/dpo_hh_curves.png
+
+$ scripts/summarize_results.py --runs_dir /tmp/smoke --eval_dir /tmp/smoke/eval --gen_dir /tmp/smoke/generations --out_dir /tmp/smoke/report_assets
+[summary] wrote /tmp/smoke/report_assets/results.md
+
+[smoke] ALL STAGES PASSED

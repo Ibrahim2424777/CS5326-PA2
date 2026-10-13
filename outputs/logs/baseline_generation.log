@@ -1,0 +1,44 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] qwen2.5-0.5b-base: 300 prompts pending, stop ids [151643, 151645], template chatml_no_system
+[gen] qwen2.5-0.5b-base: 16/300 done, 26s
+[gen] qwen2.5-0.5b-base: 32/300 done, 49s
+[gen] qwen2.5-0.5b-base: 48/300 done, 71s
+[gen] qwen2.5-0.5b-base: 64/300 done, 92s
+[gen] qwen2.5-0.5b-base: 80/300 done, 113s
+[gen] qwen2.5-0.5b-base: 96/300 done, 133s
+[gen] qwen2.5-0.5b-base: 112/300 done, 154s
+[gen] qwen2.5-0.5b-base: 128/300 done, 174s
+[gen] qwen2.5-0.5b-base: 144/300 done, 194s
+[gen] qwen2.5-0.5b-base: 160/300 done, 213s
+[gen] qwen2.5-0.5b-base: 176/300 done, 233s
+[gen] qwen2.5-0.5b-base: 192/300 done, 253s
+[gen] qwen2.5-0.5b-base: 208/300 done, 273s
+[gen] qwen2.5-0.5b-base: 224/300 done, 293s
+[gen] qwen2.5-0.5b-base: 240/300 done, 313s
+[gen] qwen2.5-0.5b-base: 256/300 done, 334s
+[gen] qwen2.5-0.5b-base: 272/300 done, 353s
+[gen] qwen2.5-0.5b-base: 288/300 done, 373s
+[gen] qwen2.5-0.5b-base: 300/300 done, 392s
+[gen] wrote outputs/generations/base_alpaca.json
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] qwen2.5-0.5b-base: 300 prompts pending, stop ids [151643, 151645], template chatml_no_system
+[gen] qwen2.5-0.5b-base: 16/300 done, 20s
+[gen] qwen2.5-0.5b-base: 32/300 done, 40s
+[gen] qwen2.5-0.5b-base: 48/300 done, 60s
+[gen] qwen2.5-0.5b-base: 64/300 done, 77s
+[gen] qwen2.5-0.5b-base: 80/300 done, 97s
+[gen] qwen2.5-0.5b-base: 96/300 done, 116s
+[gen] qwen2.5-0.5b-base: 112/300 done, 136s
+[gen] qwen2.5-0.5b-base: 128/300 done, 155s
+[gen] qwen2.5-0.5b-base: 144/300 done, 175s
+[gen] qwen2.5-0.5b-base: 160/300 done, 195s
+[gen] qwen2.5-0.5b-base: 176/300 done, 214s
+[gen] qwen2.5-0.5b-base: 192/300 done, 234s
+[gen] qwen2.5-0.5b-base: 208/300 done, 253s
+[gen] qwen2.5-0.5b-base: 224/300 done, 273s
+[gen] qwen2.5-0.5b-base: 240/300 done, 292s
+[gen] qwen2.5-0.5b-base: 256/300 done, 312s
+[gen] qwen2.5-0.5b-base: 272/300 done, 331s
+[gen] qwen2.5-0.5b-base: 288/300 done, 351s
+[gen] qwen2.5-0.5b-base: 300/300 done, 370s
+[gen] wrote outputs/generations/base_hh.json

@@ -1,0 +1,52 @@
+The tokenizer you are loading from '/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-1/cs5326-pa2/outputs/sft/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] sft: 300 prompts pending, stop ids [151643, 151645], template chatml_no_system
+[gen] sft: 16/300 done, 7s
+[gen] sft: 32/300 done, 14s
+[gen] sft: 48/300 done, 25s
+[gen] sft: 64/300 done, 33s
+[gen] sft: 80/300 done, 47s
+[gen] sft: 96/300 done, 56s
+[gen] sft: 112/300 done, 67s
+[gen] sft: 128/300 done, 78s
+[gen] sft: 144/300 done, 92s
+[gen] sft: 160/300 done, 101s
+[gen] sft: 176/300 done, 109s
+[gen] sft: 192/300 done, 117s
+[gen] sft: 208/300 done, 128s
+[gen] sft: 224/300 done, 135s
+[gen] sft: 240/300 done, 143s
+[gen] sft: 256/300 done, 162s
+[gen] sft: 272/300 done, 182s
+[gen] sft: 288/300 done, 202s
+[gen] sft: 300/300 done, 221s
+[gen] wrote outputs/generations/sft_hh.json
+The tokenizer you are loading from '/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-2/cs5326-pa2/outputs/dpo_hh/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] dpo_hh: 300 prompts pending, stop ids [151643, 151645], template chatml_no_system
+[gen] dpo_hh: 16/300 done, 8s
+[gen] dpo_hh: 32/300 done, 14s
+[gen] dpo_hh: 48/300 done, 30s
+[gen] dpo_hh: 64/300 done, 37s
+[gen] dpo_hh: 80/300 done, 49s
+[gen] dpo_hh: 96/300 done, 57s
+[gen] dpo_hh: 112/300 done, 66s
+[gen] dpo_hh: 128/300 done, 76s
+[gen] dpo_hh: 144/300 done, 86s
+[gen] dpo_hh: 160/300 done, 95s
+[gen] dpo_hh: 176/300 done, 104s
+[gen] dpo_hh: 192/300 done, 110s
+[gen] dpo_hh: 208/300 done, 125s
+[gen] dpo_hh: 224/300 done, 132s
+[gen] dpo_hh: 240/300 done, 140s
+[gen] dpo_hh: 256/300 done, 160s
+[gen] dpo_hh: 272/300 done, 180s
+[gen] dpo_hh: 288/300 done, 200s
+[gen] dpo_hh: 300/300 done, 209s
+[gen] wrote outputs/generations/dpo_hh_hh.json
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] lora_dpo: 40 prompts pending, stop ids [2], template tokenizer.chat_template
+[gen] lora_dpo: 16/40 done, 11s
+[gen] lora_dpo: 32/40 done, 22s
+[gen] lora_dpo: 40/40 done, 33s
+[gen] wrote outputs/generations/lora_dpo_persona.json

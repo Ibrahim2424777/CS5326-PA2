@@ -1,0 +1,109 @@
+[sft] device=cuda:0 fp16=True config={'run_name': 'sft', 'model_name_or_path': 'Qwen/Qwen2.5-0.5B', 'train_path': 'outputs/data/sft_train.jsonl', 'val_path': 'outputs/data/sft_val.jsonl', 'output_dir': 'outputs/sft', 'max_length': 512, 'max_prompt_length': 256, 'per_device_batch_size': 2, 'grad_accum_steps': 16, 'learning_rate': 2e-05, 'warmup_ratio': 0.03, 'scheduler': 'cosine', 'weight_decay': 0.1, 'adam_betas': [0.9, 0.999], 'max_grad_norm': 1.0, 'epochs': 1, 'fp16': True, 'gradient_checkpointing': False, 'device': 'cuda:0', 'seed': 42, 'eval_every_steps': 100, 'eval_batch_size': 8, 'log_every_steps': 10, 'max_train_examples': None, 'max_val_examples': None, 'max_steps': None, 'prompt_template': 'chatml_no_system'}
+`torch_dtype` is deprecated! Use `dtype` instead!
+[sft] train=30000 val=1000 optimizer_steps=938 warmup=28
+[sft] memory after first step: cuda:0 peak 9.26 GiB, cuda:1 peak 0.00 GiB
+[sft] step 10/938 loss 1.3808 lr 7.86e-06 gnorm 3.796 elapsed 0.9m eta 80.0m
+[sft] step 20/938 loss 1.4293 lr 1.50e-05 gnorm 4.287 elapsed 1.7m eta 80.1m
+[sft] step 30/938 loss 1.3739 lr 2.00e-05 gnorm 3.855 elapsed 2.7m eta 80.3m
+[sft] step 40/938 loss 1.4198 lr 2.00e-05 gnorm 3.892 elapsed 3.5m eta 79.5m
+[sft] step 50/938 loss 1.4330 lr 2.00e-05 gnorm 3.813 elapsed 4.5m eta 79.1m
+[sft] step 60/938 loss 1.4159 lr 1.99e-05 gnorm 4.741 elapsed 5.4m eta 78.4m
+[sft] step 70/938 loss 1.4062 lr 1.99e-05 gnorm 4.516 elapsed 6.3m eta 77.6m
+[sft] step 80/938 loss 1.3948 lr 1.98e-05 gnorm 3.439 elapsed 7.2m eta 76.7m
+[sft] step 90/938 loss 1.4228 lr 1.98e-05 gnorm 3.686 elapsed 8.1m eta 75.9m
+[sft] step 100/938 loss 1.4210 lr 1.97e-05 gnorm 4.198 elapsed 9.0m eta 75.2m
+[sft] step 100 val_loss 1.4561 ppl 4.29 best=True
+[sft] step 110/938 loss 1.3863 lr 1.96e-05 gnorm 3.544 elapsed 10.8m eta 81.2m
+[sft] step 120/938 loss 1.4263 lr 1.95e-05 gnorm 4.092 elapsed 11.7m eta 79.7m
+[sft] step 130/938 loss 1.4876 lr 1.94e-05 gnorm 4.290 elapsed 12.6m eta 78.2m
+[sft] step 140/938 loss 1.4154 lr 1.93e-05 gnorm 3.828 elapsed 13.5m eta 76.9m
+[sft] step 150/938 loss 1.4378 lr 1.91e-05 gnorm 4.494 elapsed 14.4m eta 75.8m
+[sft] step 160/938 loss 1.4204 lr 1.90e-05 gnorm 4.158 elapsed 15.4m eta 74.7m
+[sft] step 170/938 loss 1.3988 lr 1.88e-05 gnorm 3.527 elapsed 16.3m eta 73.6m
+[sft] step 180/938 loss 1.3708 lr 1.87e-05 gnorm 3.623 elapsed 17.2m eta 72.4m
+[sft] step 190/938 loss 1.4137 lr 1.85e-05 gnorm 4.180 elapsed 18.2m eta 71.5m
+[sft] step 200/938 loss 1.4271 lr 1.83e-05 gnorm 3.933 elapsed 19.1m eta 70.5m
+[sft] step 200 val_loss 1.4564 ppl 4.29 best=False
+[sft] step 210/938 loss 1.4509 lr 1.81e-05 gnorm 3.611 elapsed 21.0m eta 72.7m
+[sft] step 220/938 loss 1.3908 lr 1.79e-05 gnorm 3.936 elapsed 21.9m eta 71.4m
+[sft] step 230/938 loss 1.4203 lr 1.77e-05 gnorm 3.485 elapsed 22.8m eta 70.2m
+[sft] step 240/938 loss 1.3885 lr 1.74e-05 gnorm 3.690 elapsed 23.8m eta 69.1m
+[sft] step 250/938 loss 1.4274 lr 1.72e-05 gnorm 4.066 elapsed 24.7m eta 68.0m
+[sft] step 260/938 loss 1.4346 lr 1.70e-05 gnorm 3.843 elapsed 25.6m eta 66.9m
+[sft] step 270/938 loss 1.4363 lr 1.67e-05 gnorm 3.641 elapsed 26.6m eta 65.7m
+[sft] step 280/938 loss 1.4078 lr 1.64e-05 gnorm 3.854 elapsed 27.5m eta 64.6m
+[sft] step 290/938 loss 1.4017 lr 1.62e-05 gnorm 3.632 elapsed 28.4m eta 63.5m
+[sft] step 300/938 loss 1.4467 lr 1.59e-05 gnorm 3.394 elapsed 29.4m eta 62.4m
+[sft] step 300 val_loss 1.4473 ppl 4.25 best=True
+[sft] step 310/938 loss 1.4303 lr 1.56e-05 gnorm 4.560 elapsed 31.3m eta 63.3m
+[sft] step 320/938 loss 1.4021 lr 1.53e-05 gnorm 3.543 elapsed 32.2m eta 62.2m
+[sft] step 330/938 loss 1.4157 lr 1.50e-05 gnorm 3.882 elapsed 33.1m eta 61.0m
+[sft] step 340/938 loss 1.3949 lr 1.47e-05 gnorm 3.320 elapsed 34.1m eta 59.9m
+[sft] step 350/938 loss 1.4057 lr 1.44e-05 gnorm 3.695 elapsed 35.0m eta 58.8m
+[sft] step 360/938 loss 1.3936 lr 1.41e-05 gnorm 4.003 elapsed 36.0m eta 57.7m
+[sft] step 370/938 loss 1.4256 lr 1.38e-05 gnorm 4.043 elapsed 36.9m eta 56.6m
+[sft] step 380/938 loss 1.3827 lr 1.35e-05 gnorm 3.902 elapsed 37.8m eta 55.5m
+[sft] step 390/938 loss 1.4050 lr 1.32e-05 gnorm 3.667 elapsed 38.7m eta 54.4m
+[sft] step 400/938 loss 1.3798 lr 1.28e-05 gnorm 3.402 elapsed 39.7m eta 53.4m
+[sft] step 400 val_loss 1.4380 ppl 4.21 best=True
+[sft] step 410/938 loss 1.3785 lr 1.25e-05 gnorm 3.732 elapsed 41.6m eta 53.6m
+[sft] step 420/938 loss 1.3709 lr 1.22e-05 gnorm 3.720 elapsed 42.5m eta 52.5m
+[sft] step 430/938 loss 1.4123 lr 1.18e-05 gnorm 3.439 elapsed 43.5m eta 51.4m
+[sft] step 440/938 loss 1.3773 lr 1.15e-05 gnorm 4.154 elapsed 44.4m eta 50.3m
+[sft] step 450/938 loss 1.3958 lr 1.11e-05 gnorm 3.514 elapsed 45.4m eta 49.2m
+[sft] step 460/938 loss 1.4374 lr 1.08e-05 gnorm 3.912 elapsed 46.3m eta 48.1m
+[sft] step 470/938 loss 1.4079 lr 1.04e-05 gnorm 3.427 elapsed 47.2m eta 47.0m
+[sft] step 480/938 loss 1.3929 lr 1.01e-05 gnorm 4.258 elapsed 48.2m eta 45.9m
+[sft] step 490/938 loss 1.3765 lr 9.76e-06 gnorm 3.389 elapsed 49.1m eta 44.9m
+[sft] step 500/938 loss 1.4030 lr 9.41e-06 gnorm 3.963 elapsed 50.0m eta 43.8m
+[sft] step 500 val_loss 1.4282 ppl 4.17 best=True
+[sft] step 510/938 loss 1.4455 lr 9.07e-06 gnorm 3.715 elapsed 51.9m eta 43.6m
+[sft] step 520/938 loss 1.4110 lr 8.73e-06 gnorm 3.918 elapsed 52.9m eta 42.5m
+[sft] step 530/938 loss 1.4139 lr 8.38e-06 gnorm 3.424 elapsed 53.8m eta 41.4m
+[sft] step 540/938 loss 1.4207 lr 8.04e-06 gnorm 3.857 elapsed 54.8m eta 40.4m
+[sft] step 550/938 loss 1.4427 lr 7.71e-06 gnorm 3.657 elapsed 55.7m eta 39.3m
+[sft] step 560/938 loss 1.3320 lr 7.37e-06 gnorm 3.694 elapsed 56.6m eta 38.2m
+[sft] step 570/938 loss 1.4006 lr 7.04e-06 gnorm 3.876 elapsed 57.5m eta 37.1m
+[sft] step 580/938 loss 1.4041 lr 6.71e-06 gnorm 3.684 elapsed 58.4m eta 36.1m
+[sft] step 590/938 loss 1.3752 lr 6.39e-06 gnorm 3.514 elapsed 59.4m eta 35.0m
+[sft] step 600/938 loss 1.3370 lr 6.07e-06 gnorm 3.489 elapsed 60.3m eta 34.0m
+[sft] step 600 val_loss 1.4171 ppl 4.13 best=True
+[sft] step 610/938 loss 1.3200 lr 5.75e-06 gnorm 4.282 elapsed 62.2m eta 33.4m
+[sft] step 620/938 loss 1.3781 lr 5.44e-06 gnorm 3.920 elapsed 63.1m eta 32.4m
+[sft] step 630/938 loss 1.3962 lr 5.14e-06 gnorm 3.481 elapsed 64.0m eta 31.3m
+[sft] step 640/938 loss 1.3455 lr 4.84e-06 gnorm 3.724 elapsed 65.0m eta 30.2m
+[sft] step 650/938 loss 1.3755 lr 4.55e-06 gnorm 4.108 elapsed 65.9m eta 29.2m
+[sft] step 660/938 loss 1.3694 lr 4.26e-06 gnorm 3.289 elapsed 66.8m eta 28.1m
+[sft] step 670/938 loss 1.3385 lr 3.98e-06 gnorm 3.382 elapsed 67.8m eta 27.1m
+[sft] step 680/938 loss 1.4029 lr 3.71e-06 gnorm 3.417 elapsed 68.7m eta 26.1m
+[sft] step 690/938 loss 1.3704 lr 3.45e-06 gnorm 3.910 elapsed 69.6m eta 25.0m
+[sft] step 700/938 loss 1.3419 lr 3.19e-06 gnorm 3.744 elapsed 70.6m eta 24.0m
+[sft] step 700 val_loss 1.4078 ppl 4.09 best=True
+[sft] step 710/938 loss 1.3987 lr 2.94e-06 gnorm 3.469 elapsed 72.5m eta 23.3m
+[sft] step 720/938 loss 1.3740 lr 2.70e-06 gnorm 4.040 elapsed 73.4m eta 22.2m
+[sft] step 730/938 loss 1.3732 lr 2.47e-06 gnorm 4.033 elapsed 74.4m eta 21.2m
+[sft] step 740/938 loss 1.3438 lr 2.25e-06 gnorm 3.714 elapsed 75.3m eta 20.1m
+[sft] step 750/938 loss 1.3908 lr 2.03e-06 gnorm 3.692 elapsed 76.2m eta 19.1m
+[sft] step 760/938 loss 1.3984 lr 1.83e-06 gnorm 3.687 elapsed 77.1m eta 18.1m
+[sft] step 770/938 loss 1.3785 lr 1.64e-06 gnorm 4.006 elapsed 78.1m eta 17.0m
+[sft] step 780/938 loss 1.4040 lr 1.45e-06 gnorm 3.944 elapsed 79.0m eta 16.0m
+[sft] step 790/938 loss 1.3990 lr 1.28e-06 gnorm 3.802 elapsed 79.9m eta 15.0m
+[sft] step 800/938 loss 1.3403 lr 1.11e-06 gnorm 3.200 elapsed 80.9m eta 14.0m
+[sft] step 800 val_loss 1.4025 ppl 4.07 best=True
+[sft] step 810/938 loss 1.3726 lr 9.61e-07 gnorm 3.493 elapsed 82.8m eta 13.1m
+[sft] step 820/938 loss 1.3411 lr 8.18e-07 gnorm 3.445 elapsed 83.7m eta 12.0m
+[sft] step 830/938 loss 1.4152 lr 6.87e-07 gnorm 3.384 elapsed 84.7m eta 11.0m
+[sft] step 840/938 loss 1.3754 lr 5.67e-07 gnorm 4.083 elapsed 85.6m eta 10.0m
+[sft] step 850/938 loss 1.4287 lr 4.58e-07 gnorm 3.294 elapsed 86.5m eta 9.0m
+[sft] step 860/938 loss 1.3593 lr 3.60e-07 gnorm 3.591 elapsed 87.4m eta 7.9m
+[sft] step 870/938 loss 1.3921 lr 2.74e-07 gnorm 3.566 elapsed 88.4m eta 6.9m
+[sft] step 880/938 loss 1.3455 lr 2.00e-07 gnorm 3.997 elapsed 89.4m eta 5.9m
+[sft] step 890/938 loss 1.3712 lr 1.37e-07 gnorm 3.414 elapsed 90.3m eta 4.9m
+[sft] step 900/938 loss 1.3734 lr 8.59e-08 gnorm 3.452 elapsed 91.2m eta 3.9m
+[sft] step 900 val_loss 1.4008 ppl 4.06 best=True
+[sft] step 910/938 loss 1.3969 lr 4.67e-08 gnorm 3.582 elapsed 93.1m eta 2.9m
+[sft] step 920/938 loss 1.3527 lr 1.93e-08 gnorm 4.510 elapsed 94.1m eta 1.8m
+[sft] step 930/938 loss 1.4037 lr 3.81e-09 gnorm 3.525 elapsed 95.0m eta 0.8m
+[sft] step 938/938 loss 1.3521 lr 0.00e+00 gnorm 2.278 elapsed 95.7m eta 0.0m
+[sft] step 938 val_loss 1.4008 ppl 4.06 best=True
+[sft] done: {'run_name': 'sft', 'optimizer_steps': 938, 'best_val_loss': 1.400805324030275, 'train_examples': 30000, 'val_examples': 1000, 'minutes': 96.7, 'peak_memory': 'cuda:0 peak 13.07 GiB, cuda:1 peak 0.00 GiB'}

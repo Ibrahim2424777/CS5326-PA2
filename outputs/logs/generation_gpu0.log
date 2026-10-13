@@ -1,0 +1,52 @@
+The tokenizer you are loading from '/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-1/cs5326-pa2/outputs/sft/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] sft: 300 prompts pending, stop ids [151643, 151645], template chatml_no_system
+[gen] sft: 16/300 done, 22s
+[gen] sft: 32/300 done, 48s
+[gen] sft: 48/300 done, 71s
+[gen] sft: 64/300 done, 92s
+[gen] sft: 80/300 done, 114s
+[gen] sft: 96/300 done, 135s
+[gen] sft: 112/300 done, 156s
+[gen] sft: 128/300 done, 169s
+[gen] sft: 144/300 done, 190s
+[gen] sft: 160/300 done, 209s
+[gen] sft: 176/300 done, 221s
+[gen] sft: 192/300 done, 232s
+[gen] sft: 208/300 done, 250s
+[gen] sft: 224/300 done, 271s
+[gen] sft: 240/300 done, 281s
+[gen] sft: 256/300 done, 301s
+[gen] sft: 272/300 done, 322s
+[gen] sft: 288/300 done, 332s
+[gen] sft: 300/300 done, 340s
+[gen] wrote outputs/generations/sft_alpaca.json
+The tokenizer you are loading from '/kaggle/input/notebooks/ibrahimhassan2424/pa2-notebook-2/cs5326-pa2/outputs/dpo_uf/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] dpo_uf: 300 prompts pending, stop ids [151643, 151645], template chatml_no_system
+[gen] dpo_uf: 16/300 done, 28s
+[gen] dpo_uf: 32/300 done, 53s
+[gen] dpo_uf: 48/300 done, 75s
+[gen] dpo_uf: 64/300 done, 91s
+[gen] dpo_uf: 80/300 done, 113s
+[gen] dpo_uf: 96/300 done, 134s
+[gen] dpo_uf: 112/300 done, 155s
+[gen] dpo_uf: 128/300 done, 176s
+[gen] dpo_uf: 144/300 done, 197s
+[gen] dpo_uf: 160/300 done, 218s
+[gen] dpo_uf: 176/300 done, 239s
+[gen] dpo_uf: 192/300 done, 259s
+[gen] dpo_uf: 208/300 done, 275s
+[gen] dpo_uf: 224/300 done, 295s
+[gen] dpo_uf: 240/300 done, 314s
+[gen] dpo_uf: 256/300 done, 329s
+[gen] dpo_uf: 272/300 done, 350s
+[gen] dpo_uf: 288/300 done, 361s
+[gen] dpo_uf: 300/300 done, 375s
+[gen] wrote outputs/generations/dpo_uf_alpaca.json
+`torch_dtype` is deprecated! Use `dtype` instead!
+[gen] smollm2_instruct_base: 40 prompts pending, stop ids [2], template tokenizer.chat_template
+[gen] smollm2_instruct_base: 16/40 done, 11s
+[gen] smollm2_instruct_base: 32/40 done, 22s
+[gen] smollm2_instruct_base: 40/40 done, 32s
+[gen] wrote outputs/generations/smollm_base_persona.json

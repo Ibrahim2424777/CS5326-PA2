@@ -1,0 +1,13 @@
+[sft] loading HuggingFaceH4/ultrachat_200k:train_sft -> outputs/data/sft_train.jsonl
+[sft] train: {'scanned': 37376, 'parse_rejected': 1, 'too_long': 7265, 'duplicate': 0, 'kept': 30000, 'source': 'HuggingFaceH4/ultrachat_200k:train_sft', 'source_rows': 207865}
+[sft] loading HuggingFaceH4/ultrachat_200k:test_sft -> outputs/data/sft_val.jsonl
+[sft] val: {'scanned': 1536, 'parse_rejected': 0, 'too_long': 275, 'duplicate': 0, 'kept': 1000, 'source': 'HuggingFaceH4/ultrachat_200k:test_sft', 'source_rows': 23110}
+[hh] loading Anthropic/hh-rlhf:train -> outputs/data/hh_train.jsonl
+[hh] train: {'scanned': 50688, 'parse_rejected': 35399, 'too_long': 59, 'duplicate': 128, 'kept': 15000, 'source': 'Anthropic/hh-rlhf:train', 'source_rows': 160800}
+[hh] loading Anthropic/hh-rlhf:test -> outputs/data/hh_val.jsonl
+[hh] val: {'scanned': 3584, 'parse_rejected': 2483, 'too_long': 4, 'duplicate': 12, 'kept': 1000, 'source': 'Anthropic/hh-rlhf:test', 'source_rows': 8552}
+[uf] loading HuggingFaceH4/ultrafeedback_binarized:train_prefs -> outputs/data/uf_train.jsonl
+[uf] train: {'scanned': 21504, 'parse_rejected': 2772, 'too_long': 3376, 'duplicate': 1, 'kept': 15000, 'source': 'HuggingFaceH4/ultrafeedback_binarized:train_prefs', 'source_rows': 61135}
+[uf] loading HuggingFaceH4/ultrafeedback_binarized:test_prefs -> outputs/data/uf_val.jsonl
+[uf] val: {'scanned': 1536, 'parse_rejected': 213, 'too_long': 196, 'duplicate': 0, 'kept': 1000, 'source': 'HuggingFaceH4/ultrafeedback_binarized:test_prefs', 'source_rows': 2000}
+done -> /kaggle/working/cs5326-pa2/outputs/data

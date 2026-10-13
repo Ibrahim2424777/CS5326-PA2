@@ -1,0 +1,114 @@
+{
+  "candidate": "dpo_uf",
+  "baseline": "sft",
+  "rubric": "general",
+  "judge_models": [
+    "google/gemini-3.6-flash"
+  ],
+  "n_pairs": 300,
+  "n_judged_rows": 300,
+  "status_counts": {
+    "ok": 300
+  },
+  "total_attempts": 305,
+  "pairs_needing_retry": 5,
+  "criteria": {
+    "winner": {
+      "n": 300,
+      "wins": 141,
+      "losses": 127,
+      "ties": 32,
+      "unknown": 0,
+      "failures": 0,
+      "win_rate": 0.47,
+      "win_rate_ties_half": 0.5233333333333333,
+      "win_rate_excl_ties": 0.5261194029850746,
+      "loss_rate": 0.42333333333333334,
+      "tie_rate": 0.10666666666666667,
+      "unknown_rate": 0.0,
+      "failure_rate": 0.0,
+      "by_category": {
+        "helpful_base": {
+          "n": 51,
+          "wins": 26,
+          "losses": 20,
+          "ties": 5,
+          "unknown": 0,
+          "failures": 0,
+          "win_rate": 0.5098039215686274,
+          "win_rate_ties_half": 0.5588235294117647,
+          "win_rate_excl_ties": 0.5652173913043478,
+          "loss_rate": 0.39215686274509803,
+          "tie_rate": 0.09803921568627451,
+          "unknown_rate": 0.0,
+          "failure_rate": 0.0
+        },
+        "koala": {
+          "n": 60,
+          "wins": 30,
+          "losses": 24,
+          "ties": 6,
+          "unknown": 0,
+          "failures": 0,
+          "win_rate": 0.5,
+          "win_rate_ties_half": 0.55,
+          "win_rate_excl_ties": 0.5555555555555556,
+          "loss_rate": 0.4,
+          "tie_rate": 0.1,
+          "unknown_rate": 0.0,
+          "failure_rate": 0.0
+        },
+        "oasst": {
+          "n": 54,
+          "wins": 25,
+          "losses": 23,
+          "ties": 6,
+          "unknown": 0,
+          "failures": 0,
+          "win_rate": 0.46296296296296297,
+          "win_rate_ties_half": 0.5185185185185185,
+          "win_rate_excl_ties": 0.5208333333333334,
+          "loss_rate": 0.42592592592592593,
+          "tie_rate": 0.1111111111111111,
+          "unknown_rate": 0.0,
+          "failure_rate": 0.0
+        },
+        "selfinstruct": {
+          "n": 95,
+          "wins": 40,
+          "losses": 44,
+          "ties": 11,
+          "unknown": 0,
+          "failures": 0,
+          "win_rate": 0.42105263157894735,
+          "win_rate_ties_half": 0.4789473684210526,
+          "win_rate_excl_ties": 0.47619047619047616,
+          "loss_rate": 0.4631578947368421,
+          "tie_rate": 0.11578947368421053,
+          "unknown_rate": 0.0,
+          "failure_rate": 0.0
+        },
+        "vicuna": {
+          "n": 40,
+          "wins": 20,
+          "losses": 16,
+          "ties": 4,
+          "unknown": 0,
+          "failures": 0,
+          "win_rate": 0.5,
+          "win_rate_ties_half": 0.55,
+          "win_rate_excl_ties": 0.5555555555555556,
+          "loss_rate": 0.4,
+          "tie_rate": 0.1,
+          "unknown_rate": 0.0,
+          "failure_rate": 0.0
+        }
+      },
+      "position_counts": {
+        "A": 141,
+        "B": 127,
+        "tie": 32
+      }
+    }
+  }
+}
