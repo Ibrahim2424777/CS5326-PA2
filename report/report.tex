@@ -227,16 +227,16 @@ tracks in parallel on one GPU each, which would have added a second fp32 model t
 \node[box, right=of base] (sft) {SFT\\30k UltraChat};
 \node[box, above right=1mm and 5mm of sft] (hh) {DPO HH-RLHF\\15k pairs};
 \node[box, below right=1mm and 5mm of sft] (uf) {DPO UltraFeedback\\15k pairs};
-\node[box, right=9mm of hh] (ehh) {HH eval 300\\vs SFT};
-\node[box, right=9mm of uf] (euf) {AlpacaEval 300\\vs SFT};
+\node[box, text width=19mm, right=9mm of uf] (euf) {AlpacaEval 300\\vs SFT};
+\node[box, text width=19mm] (ehh) at (euf |- hh) {HH eval 300\\vs SFT};
 \node[box, below=12mm of base] (smol) {SmolLM2-360M\\-Instruct};
 \node[box] (lora) at (uf |- smol) {LoRA-DPO (TRL)\\200 persona pairs};
-\node[box] (epers) at (euf |- smol) {Persona eval 40\\vs base};
+\node[box, text width=19mm] (epers) at (euf |- smol) {Persona eval 40\\vs base};
 \draw[arr] (base) -- (sft);
 \draw[arr] (sft) |- (hh); \draw[arr] (sft) |- (uf);
 \draw[arr] (hh) -- (ehh); \draw[arr] (uf) -- (euf);
 \draw[arr] (smol) -- (lora); \draw[arr] (lora) -- (epers);
-\node[draw, dashed, rounded corners, fit=(ehh)(euf)(epers), inner sep=3pt, label={[font=\scriptsize]above:Gemini-3.6-flash judge}] {};
+\node[draw, dashed, rounded corners, fit=(ehh)(euf)(epers), inner sep=5pt, label={[font=\scriptsize]above:Gemini-3.6-flash judge}] {};
 \end{tikzpicture}}
 \caption{Pipeline. Two DPO tracks start from the same SFT checkpoint and are judged against SFT on their own evaluation sets; the persona track (bottom row) is separate and is judged against the base SmolLM2.}\label{fig:pipeline}
 \end{subfigure}
