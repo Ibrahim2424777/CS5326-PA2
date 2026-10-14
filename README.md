@@ -28,7 +28,7 @@ eval_sets/                   hh_rlhf_eval_300_seed42.json (provided), alpaca_eva
                              persona_style_eval_40.json
 data/persona_lora/           ramsay_style_preferences.json (provided)
 tests/                       public smoke tests + our edge-case and judge tests
-report/                      report template
+report/                      final report (report.tex -> report.pdf)
 ```
 
 ## Key implementation choices
